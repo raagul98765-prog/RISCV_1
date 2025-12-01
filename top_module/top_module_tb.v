@@ -2,6 +2,8 @@ module top_module_tb ();
 
 reg clk,reset,stall;
 
+top uut (clk,reset,stall);
+
 always #5 clk=~clk;
 
 initial begin
