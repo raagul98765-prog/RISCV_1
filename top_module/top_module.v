@@ -14,7 +14,7 @@ wire beq,bneq,bge,ble,jump,load,store,wr_en;
 
 imu       imu1   (pc,instruction_code);
 ifu       fetch  (clk,reset,stall,beq,bneq,bge,ble,jump,immi_address,immi_address_jump,pc);
-cu        cu1    (clk,reset,instruction_code,instruction,immi,wr1,wr2,rs1,rs2,rd);
+cu        cu1    (instruction_code,instruction,immi,wr1,wr2,rs1,rs2,rd);
 alu       alu1   (pc,instruction,data1,data2,immi,mem_addr,immi_address,immi_address_jump,result,beq,bneq,bge,ble,jump,load,store,wr_en);
 register  r1     (clk ,reset,load,store,wr1,wr2,wr_en,result,memory,rs1,rs2,rd,data1,data2,data3);
 data_mem  d1     (clk,reset,load,mem_addr,data3,wr_en,memory);
