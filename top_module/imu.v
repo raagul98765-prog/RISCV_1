@@ -1,14 +1,17 @@
-module imu (input  [31:0]pc,
+module imu (input reset,
+            input  [31:0]pc,
             output [31:0]instruction_code);
  
  
 reg [7:0]memory[100:0];
 
-assign instruction_code = {memory[pc+3],memory[pc+2],memory[pc+1],memory[pc]};
+assign instruction_code = (~reset)? {memory[pc+3],memory[pc+2],memory[pc+1],memory[pc]}:32'h0000;
 
             
-initial begin
-
+always @(reset) begin
+    
+    if(~reset) begin
+            
        // Setting 32-bit instruction: add : 0x00940333
        memory[3] = 8'h00;
        memory[2] = 8'h94;
@@ -146,7 +149,9 @@ initial begin
         memory[92] = 8'hef;
                        
                        
-                       
+ end     
+
+               
 
 end
 

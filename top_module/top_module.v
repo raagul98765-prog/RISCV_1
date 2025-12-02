@@ -12,7 +12,7 @@ wire [31:0] result;
 wire [31:0]memory;
 wire beq,bneq,bge,ble,jump,load,store,wr_en;
 
-imu       imu1   (pc,instruction_code);
+imu       imu1   (reset,pc,instruction_code);
 ifu       fetch  (clk,reset,stall,beq,bneq,bge,ble,jump,immi_address,immi_address_jump,pc);
 cu        cu1    (instruction_code,instruction,immi,wr1,wr2,rs1,rs2,rd);
 alu       alu1   (pc,instruction,data1,data2,immi,mem_addr,immi_address,immi_address_jump,result,beq,bneq,bge,ble,jump,load,store,wr_en);
