@@ -6,8 +6,7 @@ module alu (
     output reg [31:0] mem_addr,
     output reg [31:0] immi_address, immi_address_jump,
     output reg [31:0] result,
-    output reg beq, bneq, bge, ble, jump, load, store, wr_en
-);
+    output reg beq, bneq, bge, ble, jump, load, store, wr_en);
 
 always @(*) begin
     wr_en = 0;
