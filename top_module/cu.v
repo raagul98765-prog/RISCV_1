@@ -75,7 +75,7 @@ else if (opcode==7'b0010011) begin
     
     else instruction = 6'b010010;//sltui
       
-        rd=instruction_code[11:8];
+        rd=instruction_code[11:7];
         rs1=instruction_code[19:15];wr1=1;
         immi={{20{instruction_code[31]}},instruction_code[31:20]};
       
