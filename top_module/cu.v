@@ -161,7 +161,7 @@ end
 else if (opcode==7'b0110111) begin
      instruction = 6'b100011;
      rd=instruction_code[11:7];
-     immi={{12{instruction_code[31]}},instruction_code[31:12]};
+     immi={{20{instruction_code[31]}},instruction_code[31],instruction_code[7],instruction_code[30:25],instruction_code[11:8]};
      
 end
 
